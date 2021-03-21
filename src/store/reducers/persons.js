@@ -9,8 +9,8 @@ const persons = (state = initialState, action) => {
     case actionTypes.ADD_PERSON:
       const newPerson = {
         id: Math.random(), // not really unique but good enough here!
-        name: 'Max',
-        age: Math.floor(Math.random() * 40),
+        name: action.personData.name,
+        age: action.personData.age,
       };
       return { persons: state.persons.concat(newPerson) };
     case actionTypes.DELETE_PERSON:

@@ -24,13 +24,16 @@ class Persons extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return { personsState: state.persons };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddPerson: () => dispatch({ type: actionTypes.ADD_PERSON }),
+    onAddPerson: (name, age) =>
+      dispatch({
+        type: actionTypes.ADD_PERSON,
+        personData: { name: name, age: age },
+      }),
     onDeletePerson: personId =>
       dispatch({ type: actionTypes.DELETE_PERSON, personId: personId }),
   };
